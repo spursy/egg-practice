@@ -7,7 +7,10 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1539156896885_8975';
 
   // add your config here
-  config.middleware = [];
+  config.middleware = ['gzip', 'report'];
+  config.gzip = {
+    threshold: 1024
+  };
 
   config.mongoose = {
     client: {
@@ -15,7 +18,7 @@ module.exports = appInfo => {
       url: 'mongodb://yy:123456@127.0.0.1:27017/riskmanagement',
       options: {},
     }
-  }
+  };
 
   return config;
 };
